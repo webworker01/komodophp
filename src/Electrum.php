@@ -1,7 +1,7 @@
 <?php
 /**
  * @author webworker01
- * @package webworker01/Komodo
+ * @package webworker01/komodophp
  * 
  * @see https://github.com/pbca26/electrum-proxy/blob/master/routes/electrum/electrumjs.core.js
  * @see http://docs.electrum.org/en/latest/protocol.html

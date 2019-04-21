@@ -5,7 +5,7 @@
  * @see https://github.com/Bit-Wasp/bitcoin-php
  * 
  * @author webworker01
- * @package webworker01/Komodo
+ * @package webworker01/komodophp
  */
 
 namespace webworker01\Komodo;
