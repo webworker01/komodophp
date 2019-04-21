@@ -2,7 +2,7 @@
     "name": "webworker01/komodophp",
     "description": "Library to interact with Komodo-based blockchains",
     "type": "composer-plugin",
-    "license": "GPLV3",
+    "license": "GPL-3.0-or-later",
     "authors": [
         {
             "name": "webworker01"
