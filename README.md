@@ -60,3 +60,20 @@ foreach ($notarizations as $tx) {
     $rawtx = $cli->run('getrawtransaction', [$tx, 1]);
 }
 ```
+
+
+Opreturn
+----------
+
+Decode opreturns to search for notarization data
+
+```php
+use webworker01\Komodo;
+
+//Currently requires an array of coins that use short form opreturn data
+$shortForm = ['CHIPS', 'GAME', 'HUSH', 'EMC2', 'GIN'];
+
+$opreturn = new Opreturn($shortForm);
+
+$notarisationdata = $opreturn->decode($rawtx->vout[1]->scriptPubKey->hex);
+```
