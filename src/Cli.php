@@ -21,7 +21,7 @@ class Cli
         $this->guzzle = new \GuzzleHttp\Client();
     }
 
-    public function rpc($method, $params=[])
+    public function run($method, $params=[])
     {
         $host = $this->config['kmd']['host'];
         $port = $this->config['kmd']['port'];

@@ -11,7 +11,7 @@ Working with Addressess and Keys
 
 For manipulating Komodo addresses and keys please see docs in https://github.com/Bit-Wasp/bitcoin-php
 
-You will pass in the Komodo object 
+You will pass in the Komodo object
 
 ```php
 use webworker01\Komodo;
@@ -42,6 +42,21 @@ $electrum->connect($electrumhost, $electrumport);
 $unspent = $electrum->blockchainAddressListunspent($address);
 ```
 
-# Todo
+Working with CLI
+----------
 
-* Integrate class to interact with local full node RPC e.g. https://github.com/webworker01/notarystats/blob/master/komodo.php
+Simple CLI/RPC interface to a locally running full node.
+
+This class is not aware of commands in komodod, so any data validation is handled by the daemon.
+
+```php
+use webworker01\Komodo;
+
+$cli = new Cli();
+
+$notarizations = $cli->run('getaddresstxids', [['addresses' => [$notarizationAddress], 'start' => $currentblock, 'end' => $currentendblock]] );
+
+foreach ($notarizations as $tx) {
+    $rawtx = $cli->run('getrawtransaction', [$tx, 1]);
+}
+```
