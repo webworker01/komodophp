@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4" : {
-            "webworker01\\Komodo\\" : "src/"
+            "webworker01\\Komodo\\" : "src/Komodo"
         }
     }
 }
