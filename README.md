@@ -14,7 +14,7 @@ For manipulating Komodo addresses and keys please see docs in https://github.com
 You will pass in the Komodo object
 
 ```php
-use webworker01\Komodo;
+use webworker01\Komodo\Komodo;
 use BitWasp\Bitcoin\Address\AddressCreator;
 
 $komodo = new Komodo();
@@ -34,7 +34,7 @@ Working with ElectrumX
 ----------
 
 ```php
-use webworker01\Komodo;
+use webworker01\Komodo\Electrum;
 
 $electrum = new Electrum();
 
@@ -50,7 +50,7 @@ Simple CLI/RPC interface to a locally running full node.
 This class is not aware of commands in komodod, so any data validation is handled by the daemon.
 
 ```php
-use webworker01\Komodo;
+use webworker01\Komodo\Cli;
 
 $cli = new Cli();
 
@@ -68,7 +68,7 @@ Opreturn
 Decode opreturns to search for notarization data
 
 ```php
-use webworker01\Komodo;
+use webworker01\Komodo\Opreturn;
 
 //Currently requires an array of coins that use short form opreturn data
 $shortForm = ['CHIPS', 'GAME', 'HUSH', 'EMC2', 'GIN'];
