@@ -37,8 +37,14 @@ class Opreturn
      * @param String hex from script pubkey
      * @return (Array|false) Notarization data or not
      */
-    function decode($scriptPubKeyBinary)
+    function decode($scriptPubKeyHex)
     {
+        if ( !ctype_xdigit($scriptPubKeyHex)) {
+            return false;
+        }
+
+        $scriptPubKeyBinary = pack("H*", $scriptPubKeyHex);
+
         $length_with_mom = 72;
         $length_no_mom = 36;
 
