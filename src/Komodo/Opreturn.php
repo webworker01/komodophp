@@ -33,7 +33,7 @@ class Opreturn
      * @see https://github.com/DeckerSU/komodo_scripts/blob/master/notarizations_count.php#L140
      * @see https://github.com/coinspark/php-OP_RETURN/blob/6814b771b459c3c144f0e1719cb7a6ad0aa7195e/OP_RETURN.php#L766
      * @see https://en.bitcoin.it/wiki/Script#Constants
-     *
+     * @see https://discordapp.com/channels/412898016371015680/455755767132454913/982867544115388437
      * @param String hex from script pubkey
      * @return (Array|false) Notarization data or not
      */
