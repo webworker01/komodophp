@@ -4,7 +4,7 @@
  * @author webworker01
  * @package webworker01/komodophp
  *
- * Decode opreturn data
+ * Decode opreturn data - specifically notarization opreturns
  *
  */
 
@@ -13,7 +13,7 @@ namespace webworker01\Komodo;
 class Opreturn
 {
     /**
-     * Currently requires an array of coins that use short form opreturn data
+     * Constructor for the class
      *
      * @param deprecated $shortForm This parameter is no longer required
      */
