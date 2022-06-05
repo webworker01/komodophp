@@ -6,7 +6,6 @@
  *
  * Decode opreturn data
  *
- * @todo dynamic detection of short form opreturn data
  */
 
 namespace webworker01\Komodo;
