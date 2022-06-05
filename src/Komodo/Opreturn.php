@@ -73,18 +73,16 @@ class Opreturn
 
         if ($notarization_data !== FALSE) {
             $notarization_data["name"] = trim($notarization_data["name"]);
-            $notarization_data["prevhash"] = bin2hex(strrev($notarization_data["prevhash"]));
 
-            if (array_key_exists('MoMhash', $notarization_data)) {
-                $notarization_data["MoMhash"] = bin2hex(strrev($notarization_data["MoMhash"]));
-            }
-
-            if (array_key_exists('btctxid', $notarization_data)) {
-                $notarization_data['btctxid'] = bin2hex(strrev($notarization_data['btctxid']));
+            $cleanup = ['prevhash', 'MoMhash', 'btctxid'];
+            foreach ($cleanup as $cleanup_key) {
+                if (array_key_exists($cleanup_key, $notarization_data)) {
+                    $notarization_data[$cleanup_key] = bin2hex(strrev($notarization_data[$cleanup_key]));
+                }
             }
         }
 
-        return($notarization_data);
+        return $notarization_data;
     }
 
 }
