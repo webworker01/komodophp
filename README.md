@@ -70,10 +70,7 @@ Decode opreturns to search for notarization data
 ```php
 use webworker01\Komodo\Opreturn;
 
-//Currently requires an array of coins that use short form opreturn data
-$shortForm = ['CHIPS', 'GAME', 'HUSH', 'EMC2', 'GIN'];
-
-$opreturn = new Opreturn($shortForm);
+$opreturn = new Opreturn();
 
 $notarisationdata = $opreturn->decode($rawtx->vout[1]->scriptPubKey->hex);
 ```
