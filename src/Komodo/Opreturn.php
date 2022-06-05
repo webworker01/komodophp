@@ -50,19 +50,17 @@ class Opreturn
 
         if ($first_ord == 0x4c) {
             //there's MoM data
-            $name_length = $second_ord - $length_with_mom;
             $op_return = substr($scriptPubKeyBinary, 3, $second_ord);
+            $name_length = $second_ord - $length_with_mom;
             $notarization_data = unpack("a32prevhash/Vprevheight/a" . $name_length . "name/a32MoMhash/VMoMdepth", $op_return);
-            $notarization_data["MoMhash"] = bin2hex(strrev($notarization_data["MoMhash"]));
 
         } elseif ($first_ord <= 75) {
             //everything else should fall under here on KMD blockchain
             $op_return = substr($scriptPubKeyBinary, 2, $first_ord);
-            $testkmd = substr($op_return, 68, 3);
 
+            $testkmd = substr($op_return, 68, 3);
             if ($testkmd == 'KMD') {
-                $notarization_data = unpack('a32prevhash/Vprevheight/a32btctxid/a4name',$op_return);
-                $notarization_data['btctxid'] = bin2hex(strrev($notarization_data['btctxid']));
+                $notarization_data = unpack('a32prevhash/Vprevheight/a32btctxid/a4name', $op_return);
             } else {
                 $name_length = $first_ord - $length_no_mom;
                 $notarization_data = unpack("a32prevhash/Vprevheight/a". $name_length ."name", $op_return);
@@ -73,8 +71,18 @@ class Opreturn
             $notarization_data = unpack('a32prevhash/Vprevheight/a4name', $scriptPubKeyBinary);
         }
 
-        $notarization_data["prevhash"] = bin2hex(strrev($notarization_data["prevhash"]));
-        $notarization_data["name"] = trim($notarization_data["name"]);
+        if ($notarization_data !== FALSE) {
+            $notarization_data["name"] = trim($notarization_data["name"]);
+            $notarization_data["prevhash"] = bin2hex(strrev($notarization_data["prevhash"]));
+
+            if (array_key_exists('MoMhash', $notarization_data)) {
+                $notarization_data["MoMhash"] = bin2hex(strrev($notarization_data["MoMhash"]));
+            }
+
+            if (array_key_exists('btctxid', $notarization_data)) {
+                $notarization_data['btctxid'] = bin2hex(strrev($notarization_data['btctxid']));
+            }
+        }
 
         return($notarization_data);
     }
